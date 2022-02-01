@@ -19,7 +19,8 @@ server {
  ```
  
  
- > برای دیگر کدها می توان یک متن در نظر گرفت.
+ > برای دیگر کدها می توان یک متن در نظر گرفت. این متن به عنوان body صفحه نمایش داده خواهد شد.
    ```nginx
    return (1xx | 2xx | 4xx | 5xx) ["text"];
+   return 401 "Access denied because token is expired or invalid";
    ```
