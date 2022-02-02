@@ -56,7 +56,22 @@ rewrite ^ http://example.com$request_uri permanent;
 >   
 >   176.9.162.107/test.html --> http://example.com/test.html
 
+## Redirect http to https
+```nginx
+if ($server_port = 80) {
+rewrite ^/(.*)$ https://example.com/$1 permanent;
+}
+## Redirect http to https
+```
 
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    server_name ronixtools.com www.ronixtools.com;
 
+    return 301 https://ronixtools.com$request_uri;
+}
 
+```
 rewrite ^/(.*)$ https://ronixtools.com/ir/ permanent;
