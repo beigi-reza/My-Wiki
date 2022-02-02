@@ -24,3 +24,39 @@ server {
    return (1xx | 2xx | 4xx | 5xx) ["text"];
    return 401 "Access denied because token is expired or invalid";
    ```
+
+## Redirect A File
+
+```nginx
+if ($request_filename ~ oldfile.html){
+rewrite ^ http://example.com/newfile.html? permanent;
+}
+```
+## Redirect Site
+
+```nginx
+if ($request_filename ~ /*){
+rewrite ^ http://example.com? permanent;
+}
+```
+> Example :
+> 
+>   176.9.162.107 --> http://example.com
+>   
+>   176.9.162.107/test.html --> http://example.com
+
+```ngin
+if ($request_filename ~ /*){
+rewrite ^ http://example.com$request_uri permanent;
+}
+```
+> Example :
+> 
+>   176.9.162.107 --> http://example.com
+>   
+>   176.9.162.107/test.html --> http://example.com/test.html
+
+
+
+
+rewrite ^/(.*)$ https://ronixtools.com/ir/ permanent;
