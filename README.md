@@ -1,5 +1,3 @@
 # My-Wiki
 
-
-
-tesst
+[Nginx](nginx)
