@@ -1,5 +1,6 @@
 # My-Wiki
 
+<<<<<<< HEAD
 
 
 tesst
@@ -12,3 +13,6 @@ fs
 sf
 s
 
+=======
+[Nginx](nginx)
+>>>>>>> b15aa127fec2fac770d6ad39e426cdeb9d53c046
