@@ -1,0 +1,50 @@
+version: "3.4"
+services:
+  jira-software:
+    image: atlassian/jira-software:8.22.2
+    restart: always
+    container_name: jira-software
+    hostname: jira-software
+    environment:      
+      ATL_DB_DRIVER: org.postgresql.Driver
+      ATL_DB_TYPE: postgres72
+      ATL_JDBC_URL: jdbc:postgresql://db-jira:5432/jira
+      ATL_JDBC_USER: jira
+      ATL_JDBC_PASSWORD: 'Nz-!M(8`tCSTT:kc^7c$w79^t'
+      JAVA_OPTS: '-javaagent:/atlassian-agent.jar'
+      JVM_MINIMUM_MEMORY: 512m
+      JVM_MAXIMUM_MEMORY: 2048m
+    volumes:
+      - jira-vol:/var/atlassian/application-data/jira
+      - ./crack/atlassian-agent.jar:/atlassian-agent.jar:ro
+    networks:
+      ronix-net:
+       aliases:
+        - jira
+    ports:
+      - 8080:8080
+
+  postgressql-jira:
+    image: postgres
+    restart: always
+    container_name: postgressql-jira
+    hostname: postgressql-jira
+    environment:
+      POSTGRES_USER: jira
+      POSTGRES_PASSWORD: 'Nz-!M(8`tCSTT:kc^7c$w79^t'
+    volumes:
+      - postgresql-data-jira:/var/atlassian/application-data/jira
+    networks:
+      ronix-net:
+       aliases:
+        - db-jira
+
+networks:
+  ronix-net:
+    external: true
+volumes:
+  postgresql-data-jira:
+    name: postgresql-data-jira
+  jira-vol:
+    name: jira-vol
+
