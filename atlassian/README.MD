@@ -2,7 +2,7 @@
 
 ## Create jira-software Directory
 
-Create Directory Jira-software
+Create Directory `Jira-software`
 
 copy [jira-compose.yml](https://github.com/beigi-reza/My-Wiki/blob/main/atlassian/jira-compose.yml) in `Jira-software` directory
 
@@ -13,7 +13,7 @@ copy [atlassian-agent.bak](https://github.com/beigi-reza/My-Wiki/blob/main/atlas
 mkdir -p jira-software/crack
 cd jira-software
 
-https://github.com/beigi-reza/My-Wiki/blob/main/atlassian/jira-compose.yml
+wget https://github.com/beigi-reza/My-Wiki/blob/main/atlassian/jira-compose.yml
 
 cd crack 
 wget https://github.com/beigi-reza/My-Wiki/blob/main/atlassian/crack/atlassian-agent.bak
@@ -38,23 +38,21 @@ docker-compose -f jira-compose.yml up -d
 
 ### Run JIRA
 
-1. Run Jira (Compse File)
-2. open `http://<ip>:8080` on browser
-3. When asked for license
+1. open `http://<ip>:8080` on browser
+2. Edit Name & Address & click Next
+2. When asked for license
 
 ### Get key From Agent
 
-**Run `atlassian-agent.jar`** in jira container 
+**Run `atlassian-agent.jar`** in **jira container**
 
->java -jar atlassian-agent.jar -m `<your email>` -o `<your organization>` -p `<product to activate>` -s `<Server ID>` & Enter
+>**Type java -jar atlassian-agent.jar -m `<your email>` -o `<your organization>` -p `<product to activate>` -s `<Server ID>` & Enter**
 
 
 ```bash
-docker exec -it jira-software bash
-cd /
-
-java -jar atlassian-agent.jar -m 1058@ronix.ir -o RONIX -p jira -s B0F2-VAOH-QRK0-E331
+docker exec -it jira-software java -jar /atlassian-agent.jar -m test@gmail.com -o test -p jira -s B0F2-VAOH-QRK0-E331
 ```
+
 * NOTE1: Server ID is shown at License request step on JIRA Setup wizard
 * NOTE2: Product codes & more parameters can be obtained by executing java -jar atlassian-agent.jar
 
