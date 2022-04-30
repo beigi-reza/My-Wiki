@@ -2,15 +2,24 @@
 
 ## Create jira-software Directory
 
-Create Directory
+Create Directory Jira-software
+
+copy [jira-compose.yml](https://github.com/beigi-reza/My-Wiki/blob/main/atlassian/jira-compose.yml) in `Jira-software` directory
+
+copy [atlassian-agent.bak](https://github.com/beigi-reza/My-Wiki/blob/main/atlassian/crack/atlassian-agent.bak) in `Jira-software/crack` directory
+
 
 ```bash
 mkdir -p jira-software/crack
 cd jira-software
 
+https://github.com/beigi-reza/My-Wiki/blob/main/atlassian/jira-compose.yml
+
+cd crack 
+wget https://github.com/beigi-reza/My-Wiki/blob/main/atlassian/crack/atlassian-agent.bak
 ```
 
-> rename `atlassian-agent.bak` to `atlassian-agent.jar` in crack folder
+rename `atlassian-agent.bak` to `atlassian-agent.jar` in crack folder
 
 ```bash
 cd crack
