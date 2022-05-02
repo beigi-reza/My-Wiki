@@ -1,0 +1,24 @@
+version: "3.4"
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: pgadmin
+    hostname: pgadmin
+    environment:      
+      PGADMIN_DEFAULT_EMAIL: 1058@ronix,ir
+      PGADMIN_DEFAULT_PASSWORD: 1234567
+    networks:
+      - ronix-net
+    ports:
+      - 88:80
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+networks:
+  ronix-net:
+    external: true
+
+volumes:
+  pgadmin-data:
+    name: pgadmin-data
