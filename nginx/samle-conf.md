@@ -1,17 +1,6 @@
 # Sample Config
 
-> Simple Config
-```nginx
-server {
-    listen 80;
-    location / {
-        root /var/www/html;
-    }
-
-}
-
-```
-### Mount file from Another Address
+### Mount file to Another Address or flile
 
 ```nginx
 location /robots.txt { alias /mnt/robots/robots.txt; }
